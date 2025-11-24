@@ -1,0 +1,34 @@
+package org.techhub;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+
+
+@Configuration
+@ComponentScan(basePackages = {"org.techhhub"})
+public class AnnoConfig {
+
+	@Bean(name="dataSource")
+	public DriverManagerDataSource getDataSouce() {
+		DriverManagerDataSource dataSource =new DriverManagerDataSource();
+		dataSource.setUsername("root");
+		dataSource.setPassword("root");
+		dataSource.setUrl("jdbc:mysql://localhost:3307/jdbcapp");
+		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+		return dataSource;	
+	}
+	
+	@Bean(name="template")
+	public JdbcTemplate getTempalate() {
+		JdbcTemplate template =new JdbcTemplate();
+		template.setDataSource(this.getDataSouce());
+		return template;
+
+		
+	}
+	
+	
+}

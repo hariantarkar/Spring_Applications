@@ -1,0 +1,23 @@
+package org.techhub;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.jdbc.datasource.*;
+public class TestConnectTwoWay {
+
+	public static void main(String[] args) {
+		
+		ClassPathXmlApplicationContext context =new ClassPathXmlApplicationContext("conn.xml");
+		DriverManagerDataSource dataSourse=(DriverManagerDataSourse)context.getBean("dataSourse");
+		
+		if(dataSourse!=null)
+		{
+			System.out.println("data base is conected");
+		}
+		else
+		{
+			System.out.println("data base is not connected");
+			
+			
+		}
+	}
+
+}

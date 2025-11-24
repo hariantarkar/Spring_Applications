@@ -1,0 +1,8 @@
+
+class TestDataBaseConect {
+
+	public static void main(String[] args) {
+		
+	}
+
+}

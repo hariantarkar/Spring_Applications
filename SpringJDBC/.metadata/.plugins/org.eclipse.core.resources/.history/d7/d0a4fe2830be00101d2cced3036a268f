@@ -1,0 +1,68 @@
+package org.techhub;
+
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementCreatorFactory;
+import org.springframework.jdbc.core.PreparedStatementSetter;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.*;
+public class AnnoTest {
+
+	public static void main(String[] args) {
+       
+//		ClassPathXmlApplicationContext context= new ClassPathXmlApplicationContext("conn.xml");
+		AnnotationConfigApplicationContext context =new AnnotationConfigApplicationContext(AnnoConfig.class);
+		
+ 		JdbcTemplate template =(JdbcTemplate)context.getBean("template");
+		 if(template!=null)
+	       {
+	    	   System.out.println("Database is connected  -->");
+	    	   Scanner sc=new Scanner(System.in);
+	    	   System.out.println("enter name ,email and contact");
+	    	   final String name=sc.nextLine();
+	    	   final String email=sc.nextLine();
+	    	   final  String contact=sc.nextLine();
+	    	   //template.execute("insert into employee value ('"+name+"','"+email+"','"+contact+"')");
+	    	 int value=template.update("insert into employee value(?,?,?)",new PreparedStatementSetter() {
+				
+				@Override
+				public void setValues(PreparedStatement ps) throws SQLException {
+				    ps.setString(1, name);
+					ps.setString(2, email);
+					ps.setString(3, contact);
+				}
+			});
+	    	   if(value >=0)
+	    	   	{System.out.println("data  is saved");
+	    	   	}
+	    	   else
+	    	   {
+	    		   System.out.println("data is not  saved");
+	    	   	}
+	       }
+	       else
+	       {
+	    	   System.out.println("Database is not  connected ------->");
+	 
+	       }
+		
+	
+	}
+
+}
+//		AnnotationConfigApplicationContext context =new AnnotationConfigApplicationContext(AnnoConfig.class);
+//DriverManagerDataSource dataSource=(DriverManagerDataSource)context.getBean("dataSource");
+//if(dataSource!=null)
+//{
+//  System.out.println("Database is connected .......>");
+//  
+//}
+//else
+//{
+//  System.out.println("Database is not  connected .......>");
+//
+//}
