@@ -24,11 +24,6 @@ public class Employee {
 		this.sal = sal;
 	}
 	
-	public void show()
-	{
-		System.out.println("-------> Employee Data <------");
-		System.out.println("ID \tNAME \tSalary");
-		System.out.println(id+"\t"+name+"\t"+sal);
-	}
+	
 	
 }

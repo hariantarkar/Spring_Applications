@@ -1,15 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+
+
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans.xsd">
+          
       
-	<bean id="e" class="SpringCore.code.Employee">
+	 <bean id="employee" class="SpringCore.code.Employee">
 	<property name="id" value="101"/>
 	<property  name="name" value="ram"/>
-	<property  name="Sal" value="50000"/>	 
+	<property  name="Sal" value="60000"/>	 
+	
+	</bean> 
+	<bean id="t" class="SpringCore.code.ContructorTest">
 	
 	</bean>
+	<!-- <bean id="c" class="SpringCore.code.Company">
+	<property name="employee" ref="e"></property>
+	
+	</bean> -->
+	
+	<!-- <bean id="c" class="SpringCore.code.Company" autowire="byName">
+	
+	
+	</bean> -->
+	<!-- <bean id="c" class="SpringCore.code.Company" autowire="byType">
+	
+	
+	</bean> -->
+	
+	<!-- <bean id="c" class="SpringCore.code.Company" autowire="constructor">
+	
+	</bean> -->
+	
+	<!-- <bean id="c" class="SpringCore.code.Company" autowire="autodetect">
+	
+	</bean> -->
+	
+	<!-- <bean id="s" class="SpringCore.code.school">
+	<property name="names" >
+	<list>
+							<value>abc</value>
+							<value>mno</value>
+							<value>pqr</value>
+							</list>
+	</property>
+							
+	</bean>
+	 -->
+	<!-- <bean id="s1" class="SpringCore.code.school">
+	<property name="names" >
+	<map>
+						
+						<entry key="1" value="ABC"></entry>
+						<entry key="2" value="sham"></entry>
+						<entry key="3" value="ram"></entry>
+	</map>
+	
+	</property>
+							
+	</bean>
+	 -->
+	<bean id="std" class="SpringCore.code.Student">
+	<constructor-arg value="101" index="0" type="int"></constructor-arg>
+	<constructor-arg value="ramnath" index="1" type="java.lang.String"></constructor-arg>
+	<constructor-arg value="antarkar" index="2" type="java.lang.String"></constructor-arg>
+	
+	</bean>
+	
 
 </beans>
