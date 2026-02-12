@@ -6,7 +6,5 @@ INDEX VERSION 1.4+C:\Spring & Spring Boot\SpringMVC\.metadata\.plugins\org.eclip
 3958172761.index
 1588951174.index
 2887767039.index
-1469624929.index
-1469624929.index
 1493933605.index
 1907087288.index
