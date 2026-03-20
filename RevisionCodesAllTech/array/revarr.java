@@ -14,7 +14,6 @@ public class revarr{
         System.out.print("original array is ");
         for(int i=0;i<a.length;i++){
             System.out.print("\t"+a[i]);
-
         }
 
         for(int i=0,j=a.length-1;i<j;i++,j--){

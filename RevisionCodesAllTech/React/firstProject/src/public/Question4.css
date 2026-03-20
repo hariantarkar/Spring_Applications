@@ -1,0 +1,38 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.card{
+    width:30%;
+    height: 200px;
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: solid antiquewhite;
+    border-radius: 10px;
+    gap: 20px;
+    
+   
+}
+.btn{
+    background-color: blue;
+    color: white;
+    text-align: center;
+     width: 80%;
+    height: 40px;
+}
+
+@media(max-width:600px){
+    .card{
+        width: 40%;
+        flex-direction: column;
+        background-color: red;
+    }
+}
+body{
+    background-color: green;
+}
